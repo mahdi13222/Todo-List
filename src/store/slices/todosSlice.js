@@ -33,7 +33,7 @@ const todosSlice = createSlice({
                 if (todo.id === payload.id){
                     return{
                         ...todo,
-                        text:  todo.text
+                        text:  payload.text
                     }
                 }
                 return todo;
