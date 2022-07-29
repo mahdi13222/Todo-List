@@ -19,12 +19,14 @@ export default function TodoItem({todo}){
         dispatch(toggleDone({id: todo.id}))
     }
     const [edit, setEdit] = useState(false);
-    const editHandler = async ()=>{
-    let res = await axios.put(`https://62c5ff8976028b55ae71b0a5.endapi.io/todos/${todo.id}`,{
-        ...todo,
-        text:  todo.text
-    })
-    dispatch(editTodo({id: todo.id}))
+
+    const editHandler = async (text)=>{
+        let res = await axios.put(`https://62c5ff8976028b55ae71b0a5.endapi.io/todos/${todo.id}`,{
+            ...todo,
+            text
+        })
+
+        dispatch(editTodo({id: todo.id , text }))
     }
     return(
         <>
